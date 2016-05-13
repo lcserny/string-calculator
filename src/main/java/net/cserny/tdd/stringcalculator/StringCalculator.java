@@ -1,7 +1,5 @@
 package net.cserny.tdd.stringcalculator;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
