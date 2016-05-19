@@ -80,6 +80,6 @@ public class NumberParserSpec
     @Test
     public void givenMultipleMultiCharacterCustomDelimiterSyntaxWhenGettingNumbersThenReturnArrayWithNumbers() throws Exception
     {
-        assertExpectedNumbers("//[%][&]\n4%5&6", new int[] {4, 5, 6});
+        assertExpectedNumbers("//[%--*][&--&]\n4%--*5&--&6", new int[] {4, 5, 6});
     }
 }
