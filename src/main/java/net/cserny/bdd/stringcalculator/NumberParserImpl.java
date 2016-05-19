@@ -8,26 +8,21 @@ import java.util.List;
 public class NumberParserImpl implements NumberParser
 {
     private StringDelimiterParser stringDelimiterParser = new StandardStringDelimiterParser();
-    private InvalidItemsChecker itemsChecker = new StandardInvalidItemsChecker();
 
     @Override
-    public int[] getNumbers(String expression) throws NegativesNotAllowedException
+    public int[] getNumbers(String expression)
     {
         if (expression.isEmpty()) {
             return new int[0];
         }
 
         checkDelimiterParser(expression);
-
         return getInts(expression);
     }
 
-    private int[] getInts(String expression) throws NegativesNotAllowedException
+    private int[] getInts(String expression)
     {
-        List<String> ints = stringDelimiterParser.splitExpression(expression);
-        itemsChecker.checkItems(ints);
-
-        return ints.stream().mapToInt(Integer::valueOf).toArray();
+        return stringDelimiterParser.splitExpression(expression).stream().mapToInt(Integer::valueOf).toArray();
     }
 
     private void checkDelimiterParser(String expression)

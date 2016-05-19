@@ -7,9 +7,9 @@ import java.util.List;
  */
 public class NegativesNotAllowedException extends Exception
 {
-    private List<String> invalidNumbers;
+    private List<Integer> invalidNumbers;
 
-    public NegativesNotAllowedException(List<String> invalidNumbers)
+    public NegativesNotAllowedException(List<Integer> invalidNumbers)
     {
         this.invalidNumbers = invalidNumbers;
     }
@@ -17,6 +17,11 @@ public class NegativesNotAllowedException extends Exception
     @Override
     public String getMessage()
     {
-        return String.format("Negatives not allowed: %s", String.join(" ", invalidNumbers));
+        String message = "Negatives not allowed: ";
+        for (Integer number : invalidNumbers) {
+            message += String.valueOf(number) + " ";
+        }
+
+        return message.trim();
     }
 }

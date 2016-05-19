@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface InvalidItemsChecker
 {
-    public void checkItems(List<String> items) throws NegativesNotAllowedException;
+    public List<Integer> checkItems(int[] numbers) throws NegativesNotAllowedException;
 }

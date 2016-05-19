@@ -5,5 +5,5 @@ package net.cserny.bdd.stringcalculator;
  */
 public interface NumberAdder
 {
-    public int add(int[] numbers);
+    public int add(int[] numbers) throws NegativesNotAllowedException;
 }

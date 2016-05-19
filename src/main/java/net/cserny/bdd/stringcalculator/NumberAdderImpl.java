@@ -1,5 +1,7 @@
 package net.cserny.bdd.stringcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /**
@@ -7,9 +9,12 @@ import java.util.stream.IntStream;
  */
 public class NumberAdderImpl implements NumberAdder
 {
+    private InvalidItemsChecker itemsChecker = new StandardInvalidItemsChecker();
+
     @Override
-    public int add(int[] numbers)
+    public int add(int[] numbers) throws NegativesNotAllowedException
     {
-        return IntStream.of(numbers).sum();
+        List<Integer> checkedNumbers = itemsChecker.checkItems(numbers);
+        return checkedNumbers.stream().mapToInt(value -> value).sum();
     }
 }

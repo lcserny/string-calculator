@@ -15,19 +15,19 @@ public class NumberParserSpec
     private int[] expected = new int[0];
     private int[] result;
 
-    private void parseExpected() throws NegativesNotAllowedException
+    private void parseExpected()
     {
         NumberParser parser = new NumberParserImpl();
         result = parser.getNumbers(numbersString);
     }
 
-    private void assertExpectedNumbers() throws NegativesNotAllowedException
+    private void assertExpectedNumbers()
     {
         parseExpected();
         assertArrayEquals(expected, result);
     }
 
-    private void assertExpectedNumbers(String numbersString, int[] expected) throws NegativesNotAllowedException
+    private void assertExpectedNumbers(String numbersString, int[] expected)
     {
         this.numbersString = numbersString;
         this.expected = expected;
@@ -66,15 +66,20 @@ public class NumberParserSpec
     }
 
     @Test
-    public void givenNumbersStringWithCustomDelimiterSyntaxWhenAddingThenReturnArrayWithNumbers() throws Exception
+    public void givenNumbersStringWithCustomDelimiterSyntaxWhenGettingNumbersThenReturnArrayWithNumbers() throws Exception
     {
         assertExpectedNumbers("//;\n2;3;4", new int[] {2, 3, 4});
     }
 
-    @Test(expected = NegativesNotAllowedException.class)
-    public void givenNegativeNumbersStringWhenAddingThenThrowNegativesNotAllowedException() throws Exception
+    @Test
+    public void givenMultiCharacterCustomDelimiterSyntaxWhenGettingNumbersThenReturnArrayWithNumbers() throws Exception
     {
-        numbersString = "-1,3,-5";
-        parseExpected();
+        assertExpectedNumbers("//[***]\n3***4***5", new int[] {3, 4, 5});
+    }
+
+    @Test
+    public void givenMultipleMultiCharacterCustomDelimiterSyntaxWhenGettingNumbersThenReturnArrayWithNumbers() throws Exception
+    {
+        assertExpectedNumbers("//[%][&]\n4%5&6", new int[] {4, 5, 6});
     }
 }
