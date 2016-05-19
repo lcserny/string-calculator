@@ -23,7 +23,7 @@ public class NumberAdderSpec
     }
 
     @Test(expected = NegativesNotAllowedException.class)
-    public void givenNegativeNumbersStringWhenAddingThenThrowNegativesNotAllowedException() throws Exception
+    public void givenNegativeNumbersArrayWhenAddingThenThrowNegativesNotAllowedException() throws Exception
     {
         getSum(new int[]{-1, 3, -5});
     }
@@ -40,7 +40,7 @@ public class NumberAdderSpec
     }
 
     @Test
-    public void givenNumberInStringBiggerThan1000WhenAddingThenIgnoreIt() throws Exception
+    public void givenNumberInArrayBiggerThan1000WhenAddingThenIgnoreIt() throws Exception
     {
         int result = getSum(new int[]{1, 2, 1003});
         assertEquals(3, result);
