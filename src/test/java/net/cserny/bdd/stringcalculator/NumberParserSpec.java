@@ -27,6 +27,14 @@ public class NumberParserSpec
         assertArrayEquals(expected, result);
     }
 
+    private void assertExpectedNumbers(String numbersString, int[] expected) throws NegativesNotAllowedException
+    {
+        this.numbersString = numbersString;
+        this.expected = expected;
+
+        assertExpectedNumbers();
+    }
+
     @Test
     public void givenEmptyStringWhenGettingNumbersThenReturnEmptyArray() throws Exception
     {
@@ -36,46 +44,31 @@ public class NumberParserSpec
     @Test
     public void givenOneNumberStringWhenGettingNumbersThenReturnArrayWithTheNumber() throws Exception
     {
-        numbersString = "2";
-        expected = new int[] {2};
-
-        assertExpectedNumbers();
+        assertExpectedNumbers("2", new int[] {2});
     }
 
     @Test
     public void givenTwoNumbersStringCommaDelimitedWhenGettingNumbersThenReturnArrayWithTheNumbers() throws Exception
     {
-        numbersString = "2,3";
-        expected = new int[] {2, 3};
-
-        assertExpectedNumbers();
+        assertExpectedNumbers("2,3", new int[] {2, 3});
     }
 
     @Test
     public void givenUnknownAmountOfNumbersStringCommaDelimitedWhenGettingNumbersThenReturnArrayWithTheNumbers() throws Exception
     {
-        numbersString = "2,3,5";
-        expected = new int[] {2, 3, 5};
-
-        assertExpectedNumbers();
+        assertExpectedNumbers("2,3,5", new int[] {2, 3, 5});
     }
 
     @Test
     public void givenNewlineDelimitedNumbersStringWhenGettingNumbersThenReturnArrayWithNumbers() throws Exception
     {
-        numbersString = "1\n3,3";
-        expected = new int[] {1, 3, 3};
-
-        assertExpectedNumbers();
+        assertExpectedNumbers("1\n3,3", new int[] {1, 3, 3});
     }
 
     @Test
     public void givenNumbersStringWithCustomDelimiterSyntaxWhenAddingThenReturnArrayWithNumbers() throws Exception
     {
-        numbersString = "//;\n2;3;4";
-        expected = new int[] {2, 3, 4};
-
-        assertExpectedNumbers();
+        assertExpectedNumbers("//;\n2;3;4", new int[] {2, 3, 4});
     }
 
     @Test(expected = NegativesNotAllowedException.class)
