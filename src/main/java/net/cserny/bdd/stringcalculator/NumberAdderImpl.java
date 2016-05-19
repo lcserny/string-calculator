@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 /**
  * Created by user on 18.05.2016.
  */
-public class NumbersStringAdder implements NumberAdder
+public class NumberAdderImpl implements NumberAdder
 {
     @Override
     public int add(int[] numbers)

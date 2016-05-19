@@ -14,7 +14,7 @@ public class StringCalculator
         this.numberAdder = numberAdder;
     }
 
-    public int add(String expression)
+    public int add(String expression) throws NegativesNotAllowedException
     {
         int[] numbers = numbersParser.getNumbers(expression);
         return numberAdder.add(numbers);
