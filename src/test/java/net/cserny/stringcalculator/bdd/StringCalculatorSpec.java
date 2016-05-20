@@ -4,8 +4,8 @@ import com.nitorcreations.junit.runners.NestedRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
  * Created by user on 20.05.2016.
@@ -22,10 +22,7 @@ public class StringCalculatorSpec
         @Test
         public void shouldReturnProcessedAmount() throws Exception
         {
-            int sum = 99;
-            int result = calculator.add(numbersString);
-
-            assertThat(result, equalTo(sum));
+            assertThat(calculator.add(numbersString), equalTo(999999));
         }
     }
 }
