@@ -16,17 +16,12 @@ public class GivenStringToParser
 {
     NumberParser parser = new NumberParserImpl();
 
-    private void assertExpectedNumbers(String numbersString, int[] expected)
-    {
-        assertThat(expected, equalTo(parser.getNumbers(numbersString)));
-    }
-
     public class WhenEmptyStringIsUsedWhileGettingNumbers
     {
         @Test
         public void thenReturnEmptyIntArray() throws Exception
         {
-            assertExpectedNumbers("", new int[0]);
+            assertThat(new int[0], equalTo(parser.getNumbers("")));
         }
     }
 
@@ -35,7 +30,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumber() throws Exception
         {
-            assertExpectedNumbers("2", new int[] {2});
+            assertThat(new int[] {2}, equalTo(parser.getNumbers("2")));
         }
     }
 
@@ -44,7 +39,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumbers() throws Exception
         {
-            assertExpectedNumbers("2,3,6,7", new int[] {2,3,6,7});
+            assertThat(new int[] {2, 3, 6, 7}, equalTo(parser.getNumbers("2,3,6,7")));
         }
     }
 
@@ -53,7 +48,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumbers() throws Exception
         {
-            assertExpectedNumbers("1\n4,8\n7", new int[] {1,4,8,7});
+            assertThat(new int[] {1, 4, 8, 7}, equalTo(parser.getNumbers("1\n4,8\n7")));
         }
     }
 
@@ -62,7 +57,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumbers() throws Exception
         {
-            assertExpectedNumbers("//;\n2;3;4", new int[] {2, 3, 4});
+            assertThat(new int[] {2, 3, 4}, equalTo(parser.getNumbers("//;\n2;3;4")));
         }
     }
 
@@ -71,7 +66,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumbers() throws Exception
         {
-            assertExpectedNumbers("//[***]\n3***4***5", new int[] {3, 4, 5});
+            assertThat(new int[] {3, 4, 5}, equalTo(parser.getNumbers("//[***]\n3***4***5")));
         }
     }
 
@@ -80,7 +75,7 @@ public class GivenStringToParser
         @Test
         public void thenReturnIntArrayContainingNumbers() throws Exception
         {
-            assertExpectedNumbers("//[%--*][&--&]\n4%--*5&--&6", new int[] {4, 5, 6});
+            assertThat(new int[] {4, 5, 6}, equalTo(parser.getNumbers("//[%--*][&--&]\n4%--*5&--&6")));
         }
     }
 }
