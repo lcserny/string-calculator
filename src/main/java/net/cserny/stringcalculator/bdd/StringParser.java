@@ -5,5 +5,5 @@ package net.cserny.stringcalculator.bdd;
  */
 public interface StringParser
 {
-    public int[] getNumbers(String numbersString);
+    public int[] getNumbers(String numbersString) throws NegativesNotAllowedException;
 }

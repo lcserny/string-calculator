@@ -16,9 +16,10 @@ import static org.mockito.Mockito.when;
 @RunWith(NestedRunner.class)
 public class StringCalculatorSpec
 {
+    StringCalculator calculator;
+
     StringParser parser;
     NumbersAdder adder;
-    StringCalculator calculator;
 
     @Before
     public void setUp() throws Exception
@@ -28,7 +29,7 @@ public class StringCalculatorSpec
         calculator = new StringCalculator(parser, adder);
     }
 
-    public class WhenGivenStringToAdd
+    public class GivenStringWhenAdding
     {
         String numbersString = "some numbers";
 

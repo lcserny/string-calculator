@@ -14,7 +14,7 @@ public class StringCalculator
         this.adder = adder;
     }
 
-    public int add(String numbersString)
+    public int add(String numbersString) throws NegativesNotAllowedException
     {
         int[] numbers = parser.getNumbers(numbersString);
         return adder.getSum(numbers);
