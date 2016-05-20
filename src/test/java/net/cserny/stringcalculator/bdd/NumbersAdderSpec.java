@@ -15,25 +15,26 @@ public class NumbersAdderSpec
 {
     NumbersAdder adder = new NumbersAdderImpl();
 
+    private void assertExpected(int[] numbers, int sum)
+    {
+        assertThat(adder.getSum(numbers), equalTo(sum));
+    }
+
     public class GivenNumbersWhenAdding
     {
-        int[] numbers = new int[] {1,2,3,4,5};
-
         @Test
         public void shouldReturnTheirSum() throws Exception
         {
-            assertThat(adder.getSum(numbers), equalTo(15));
+            assertExpected(new int[] {1,2,3,4,5}, 15);
         }
     }
 
     public class GivenNumbersBiggerThan1000WhenAdding
     {
-        int[] numbers = new int[] {1,2,1005};
-
         @Test
         public void shouldBeIgnored() throws Exception
         {
-            assertThat(adder.getSum(numbers), equalTo(3));
+            assertExpected(new int[] {1,2,1005}, 3);
         }
     }
 }
