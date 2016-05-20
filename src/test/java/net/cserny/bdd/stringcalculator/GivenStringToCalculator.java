@@ -1,6 +1,7 @@
 package net.cserny.bdd.stringcalculator;
 
 import com.nitorcreations.junit.runners.NestedRunner;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -18,10 +19,10 @@ import static org.mockito.Mockito.when;
 @RunWith(NestedRunner.class)
 public class GivenStringToCalculator
 {
-    String numbersString = "{some numbers}";
     NumberParser parser = Mockito.mock(NumberParser.class);
     NumberAdder adder = Mockito.mock(NumberAdder.class);
     StringCalculator calculator = new StringCalculator(parser, adder);
+    String numbersString = "{some numbers}";
 
     public class WhenAdding
     {
