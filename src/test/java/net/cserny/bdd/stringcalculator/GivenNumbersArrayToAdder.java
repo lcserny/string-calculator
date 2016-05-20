@@ -4,6 +4,8 @@ import com.nitorcreations.junit.runners.NestedRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -19,7 +21,7 @@ public class GivenNumbersArrayToAdder
         @Test
         public void thenReturnTheirSum() throws Exception
         {
-            assertEquals(6, adder.add(new int[]{1, 2, 3}));
+            assertThat(6, equalTo(adder.add(new int[]{1, 2, 3})));
         }
     }
 
@@ -37,7 +39,7 @@ public class GivenNumbersArrayToAdder
             try {
                 adder.add(new int[] {-1, 3, -5});
             } catch (NegativesNotAllowedException ex) {
-                assertEquals("Negatives not allowed: -1 -5", ex.getMessage());
+                assertThat("Negatives not allowed: -1 -5", equalTo(ex.getMessage()));
             }
         }
     }
@@ -47,7 +49,7 @@ public class GivenNumbersArrayToAdder
         @Test
         public void thenIgnoreThem() throws Exception
         {
-            assertEquals(3, adder.add(new int[]{1, 2, 1003}));
+            assertThat(3, equalTo(adder.add(new int[]{1, 2, 1003})));
         }
     }
 }

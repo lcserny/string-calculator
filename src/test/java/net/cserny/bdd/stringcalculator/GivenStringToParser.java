@@ -4,6 +4,8 @@ import com.nitorcreations.junit.runners.NestedRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
@@ -16,7 +18,7 @@ public class GivenStringToParser
 
     private void assertExpectedNumbers(String numbersString, int[] expected)
     {
-        assertArrayEquals(expected, parser.getNumbers(numbersString));
+        assertThat(expected, equalTo(parser.getNumbers(numbersString)));
     }
 
     public class WhenEmptyStringIsUsedWhileGettingNumbers
