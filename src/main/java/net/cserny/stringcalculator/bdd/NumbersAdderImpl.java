@@ -12,13 +12,13 @@ public class NumbersAdderImpl implements NumbersAdder
     @Override
     public int getSum(int[] numbers) throws NegativesNotAllowedException
     {
-        List<Integer> numbersStream = getIntStream(numbers);
+        List<Integer> numbersStream = getIntegersList(numbers);
         checkForNegatives(numbersStream);
 
         return numbersStream.stream().filter(value -> value > 0).mapToInt(Integer::valueOf).sum();
     }
 
-    private List<Integer> getIntStream(int[] numbers)
+    private List<Integer> getIntegersList(int[] numbers)
     {
         return IntStream.of(numbers).boxed().collect(Collectors.toList());
     }
