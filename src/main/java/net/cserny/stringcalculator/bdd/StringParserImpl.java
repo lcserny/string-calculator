@@ -14,14 +14,14 @@ public class StringParserImpl implements StringParser
     public int[] parseString(String numbers)
     {
         if (numbers.isEmpty()) {
-            return getEmptyArray();
+            return new int[0];
         }
         return getArrayWithNumbers(numbers);
     }
 
     private int[] getArrayWithNumbers(String numbers)
     {
-        return getSplitArray(numbers).stream().mapToInt(this::getInteger).toArray();
+        return getSplitArray(numbers).stream().mapToInt(Integer::valueOf).toArray();
     }
 
     private List<String> getSplitArray(String numbers)
@@ -47,15 +47,5 @@ public class StringParserImpl implements StringParser
     private boolean isCustomDelimiterSyntax(String numbers)
     {
         return numbers.startsWith("//");
-    }
-
-    private Integer getInteger(String numbers)
-    {
-        return Integer.valueOf(numbers);
-    }
-
-    private int[] getEmptyArray()
-    {
-        return new int[0];
     }
 }
