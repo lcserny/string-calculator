@@ -9,8 +9,7 @@ import java.util.stream.IntStream;
  */
 public class NumbersAdderImpl implements NumbersAdder
 {
-    @Override
-    public int getSum(int[] numbers) throws NegativesNotAllowedException
+    @Override public int getSum(int[] numbers) throws NegativesNotAllowedException
     {
         List<Integer> numbersStream = getIntegersList(numbers);
         checkForNegatives(numbersStream);

@@ -10,8 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by user on 23.05.2016.
  */
-@RunWith(NestedRunner.class)
-public class StringParserSpec
+@RunWith(NestedRunner.class) public class StringParserSpec
 {
     StringParser parser;
 
@@ -27,8 +26,7 @@ public class StringParserSpec
 
     public class WhenPassingEmptyStringToParse
     {
-        @Test
-        public void thenReturnEmptyNumbersArray() throws Exception
+        @Test public void thenReturnEmptyNumbersArray() throws Exception
         {
             assertExpected("", new int[0]);
         }
@@ -36,8 +34,7 @@ public class StringParserSpec
 
     public class WhenPassingSingleNumberStringToParse
     {
-        @Test
-        public void thenReturnNumbersArrayContainingPassedNumber() throws Exception
+        @Test public void thenReturnNumbersArrayContainingPassedNumber() throws Exception
         {
             assertExpected("3", new int[]{3});
         }
@@ -45,8 +42,7 @@ public class StringParserSpec
 
     public class WhenPassingCommaDelimitedNumbersStringToParse
     {
-        @Test
-        public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
+        @Test public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
         {
             assertExpected("3,2", new int[] {3,2});
         }
@@ -54,8 +50,7 @@ public class StringParserSpec
 
     public class WhenPassingNewlineDelimitedNumbersStringToParse
     {
-        @Test
-        public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
+        @Test public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
         {
             assertExpected("4\n5,3", new int[] {4,5,3});
         }
@@ -63,8 +58,7 @@ public class StringParserSpec
 
     public class WhenPassingCustomDelimiterSyntaxNumbersStringToParse
     {
-        @Test
-        public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
+        @Test public void thenReturnNumbersArrayContainingPassedNumbers() throws Exception
         {
             assertExpected("//;\n6;7;8", new int[] {6,7,8});
         }

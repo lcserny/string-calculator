@@ -10,8 +10,7 @@ public class StringParserImpl implements StringParser
 {
     private String delimiterRegex = ",|\n";
 
-    @Override
-    public int[] parseString(String numbers)
+    @Override public int[] parseString(String numbers)
     {
         if (numbers.isEmpty()) {
             return new int[0];

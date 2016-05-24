@@ -13,8 +13,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by user on 23.05.2016.
  */
-@RunWith(NestedRunner.class)
-public class StringCalculatorSpec
+@RunWith(NestedRunner.class) public class StringCalculatorSpec
 {
     StringCalculator calculator;
     StringParser parser;
@@ -31,8 +30,7 @@ public class StringCalculatorSpec
     {
         String passedString = "some numbers";
 
-        @Test
-        public void shouldReturnProcessedAmount() throws Exception
+        @Test public void shouldReturnProcessedAmount() throws Exception
         {
             int[] numbers = {1, 2, 3, 4, 5};
             int sum = 999;

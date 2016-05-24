@@ -12,8 +12,7 @@ public class NegativesNotAllowedException extends Exception
         this.invalidNumbers = invalidNumbers;
     }
 
-    @Override
-    public String getMessage()
+    @Override public String getMessage()
     {
         String message = "Negatives not allowed: ";
         for (int number : invalidNumbers) {

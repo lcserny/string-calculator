@@ -10,8 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by user on 23.05.2016.
  */
-@RunWith(NestedRunner.class)
-public class NumbersAdderSpec
+@RunWith(NestedRunner.class) public class NumbersAdderSpec
 {
     NumbersAdder adder;
 
@@ -24,8 +23,7 @@ public class NumbersAdderSpec
     {
         int[] numbers = new int[] {1,2,3,4,5};
 
-        @Test
-        public void thenReturnTheirSum() throws Exception
+        @Test public void thenReturnTheirSum() throws Exception
         {
             int sum = 15;
 
@@ -45,8 +43,7 @@ public class NumbersAdderSpec
             adder.getSum(numbers);
         }
 
-        @Test
-        public void thenNegativesNotAllowedExceptionMessageShouldContainTheNegativeNumbers() throws Exception
+        @Test public void thenNegativesNotAllowedExceptionMessageShouldContainTheNegativeNumbers() throws Exception
         {
             try {
                 adder.getSum(numbers);
